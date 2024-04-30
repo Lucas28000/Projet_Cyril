@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Taches{% endblock %}
+
+{% block body %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nouveau</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for tacheN in tachesN %}
+    <tr>
+      <th scope="row">1</th>
+      <td> {{tacheN.titre}} </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">En cours</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for tacheEC in tachesEC %}
+    <tr>
+      <th scope="row">2</th>
+      <td> {{tacheEC.titre}} </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nouveau</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for tacheT in tachesT %}
+    <tr>
+      <th scope="row">1</th>
+      <td> {{tacheT.titre}} </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
