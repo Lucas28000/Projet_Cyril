@@ -40,4 +40,13 @@ class TacheRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+    public function findByEtat($etat)
+    {
+        return $this->createQueryBuilder('t')
+            ->innerJoin('t.id_etat', 'e')
+            ->andWhere('e.id = :etat')
+            ->setParameter('etat', $etat)
+            ->getQuery()
+            ->getResult();
+    }
 }

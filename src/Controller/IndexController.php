@@ -2,9 +2,9 @@
 
 namespace App\Controller;
 
-use App\Entity\Utilisateur;
-use App\Form\UtilisateurType;
-use App\Repository\UtilisateurRepository;
+use App\Entity\Tache;
+use App\Form\TacheType;
+use App\Repository\TacheRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,5 +17,15 @@ class IndexController extends AbstractController
     public function index(): Response
     {
         return $this->render('index.html.twig');
+    }
+
+    #[Route('/taches', name: 'app_taches', methods: ['GET'])]
+    public function taches(TacheRepository $tacheRepository): Response
+    {
+        return $this->render('taches.html.twig', [
+            "tachesN" => $tacheRepository->findByEtat(1),
+            "tachesEC" => $tacheRepository->findByEtat(2),
+            "tachesT" => $tacheRepository->findByEtat(3)
+        ]);
     }
 }
